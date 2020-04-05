@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@component('components.master')
 
-@section('content')
-<div class="container">
+    <div class="container mx-auto px-6 py-4 bg-gray-400">
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="font-bold text-lg  mb-4">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -53,9 +53,9 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
+                                    <button type="submit" class="px-6 py-3 rounded text-sm uppercase bg-blue-600 text-white">
+                                        {{ __('Login') }}
+                                    </button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -70,4 +70,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endcomponent

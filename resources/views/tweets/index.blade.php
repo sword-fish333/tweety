@@ -1,6 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
+@component('components.app')
+    <div>
     @include('_publish-tweet-panel')
-  @include('_timeline')
-@endsection
+    @include('_timeline')
+    </div>
+    @endcomponent
