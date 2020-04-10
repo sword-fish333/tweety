@@ -2,7 +2,7 @@
     <header class="mb-6 relative">
         <div class="relative">
         <img src="{{asset('/images/dimitry klokov.jpg')}}" alt="profile img" class="border-r-4 mb-2" style="width: 100%;border-radius: 30px;height: 300px;">
-        <img src="https://i.pravatar.cc/200" class="rounded-full mr-3 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2" width="150"
+        <img src="{{$user->avatar}}" class="rounded-full mr-3 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2" width="150"
         style="left: 50%;"
         >
         </div>

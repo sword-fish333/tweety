@@ -21,6 +21,7 @@ Route::post('/profiles/{user}/follow','FollowsController@store');
 Route::post('/tweets','TweetController@store');
 Route::get('/profiles/{user}','ProfileController@show')->name('profile');
     Route::get('/profiles/{user}/edit','ProfileController@edit')->middleware('can:edit,user');
+    Route::patch('/profiles/{user}','ProfileController@update');
 
 });
 Route::get('/logout',function (){
