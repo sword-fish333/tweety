@@ -7,7 +7,7 @@
         >
         </div>
         <div class="flex justify-between items-center">
-       <div>
+       <div style="max-width: 300px;">
            <h3 class="font-bold text-2xl mb-0">{{$user->name}}</h3>
            <p class="text-sm">{{$user->created_at->diffForHumans()}}</p>
        </div>
@@ -23,5 +23,5 @@
         <p class="text-sm text-center mt-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab culpa et excepturi illo, illum necessitatibus possimus repudiandae. Animi cum debitis deserunt ducimus fuga temporibus totam, voluptatum! A ab, accusantium assumenda cumque dolor harum in minima natus nesciunt quasi ullam velit?</p>
     </header>
   <h3> User {{$user->name}}</h3>
-    @include('_timeline',['tweets'=>$user->tweets])
+    @include('_timeline',['tweets'=>$tweets])
 @endcomponent

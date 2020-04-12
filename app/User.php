@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -38,11 +39,15 @@ class User extends Authenticatable
     ];
 
 
+    public function setPasswordAttribute($password){
+        $this->attributes['password']=bcrypt($password);
+    }
+
     public function timeline(){
 //        return Tweet::where('user_id',$this->id)->latest()->get();
     $friends=$this->follows()->pluck('id');
 
-    return Tweet::whereIn('user_id',$friends)->orWhere('user_id',$this->id)->latest()->get();
+    return Tweet::whereIn('user_id',$friends)->orWhere('user_id',$this->id)->latest()->paginate(10);
     }
 
     public function tweets(){
@@ -57,7 +62,7 @@ class User extends Authenticatable
     }
 
     public function getAvatarAttribute($value){
-        return asset($value);
+        return asset($value ?: '/images/default-avatar.jpg');
     }
 
     public function getRouteKeyName()

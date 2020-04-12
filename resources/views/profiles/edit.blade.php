@@ -26,7 +26,7 @@
     <div class="mb-6">
       <label for="avatar" class="block uppercase font-bold text-xs text-grey-700">Avatar</label>
       <div class="flex">
-      <input type="file" name="avatar" class="border border-grey-400 p-2 w-full" value="{{$user->avatar}}" id="avatar" required>
+      <input type="file" name="avatar" class="border border-grey-400 p-2 w-full" value="{{$user->avatar}}" id="avatar">
         <img src="{{asset('app/public/avatars/'.$user->avatar)}}" alt="Your avatar" width="100px" >
       </div>
       @error('email')
@@ -36,7 +36,7 @@
     <div class="mb-6">
       <label for="password" class="block uppercase font-bold text-xs text-grey-700">Password</label>
       <input type="password" name="password" class="border border-grey-400 p-2 w-full" id="password" required>
-      @error('email')
+      @error('password')
       <p class="text-red-500 text-xs  mt-2" >{{$message}}</p>
       @enderror
     </div>
@@ -48,7 +48,10 @@
       @enderror
     </div>
     <div class="mb-6">
-      <input type="submit" value="Submit" class="btn bg-blue-400 rounded py-2 px-4 hover:bg-blue-500 text-white">
+      <input type="submit" value="Submit" class="btn
+      bg-blue-400 rounded py-2 px-4 hover:bg-blue-500 text-white mr-4">
+
+      <a href="{{$user->path()}}" class="hover:underline">Cancel</a>
     </div>
   </form>
 @endcomponent
